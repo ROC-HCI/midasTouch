@@ -1,0 +1,9 @@
+#!wing
+#!version=5.0
+##################################################################
+# Wing IDE project file                                          #
+##################################################################
+[project attributes]
+proj.file-list = [loc('../../../../../../LeapSDK/lib/Leap.py'),
+                  loc('../../../../Desktop/pygame/sprite_collect_blocks.py')]
+proj.file-type = 'shared'
