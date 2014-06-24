@@ -2,7 +2,7 @@
 import sys
 import serial
 import time
-PORT = 'COM7' # The port my Arduino is on, on my WinXP box.
+PORT = 'COM5' # The port my Arduino is on, on my WinXP box.
 
 def main(val=5):
     # Open a connection to the serial port.  This will reset the Arduino, and
