@@ -226,13 +226,10 @@ class SampleListener(Leap.Listener):
     #cycles through all of the drawn sprites and returns true if collision detected (EXPAND HERE)
     def collisiondetect(self, player, drawn_sprites_list):
         for sprite in drawn_sprites_list:
-            if(player.rect.x > sprite.rect.x and player.rect.x < sprite.rect.x):
-                if(player.rect.y > sprite.rect.y and player.rect.y < sprite.rect.y):
+            if(player.rect.x > sprite.rect.x and player.rect.x < sprite.rect.x + 20):
+                if(player.rect.y > sprite.rect.y and player.rect.y < sprite.rect.y + 15):
                     return True
-                else:
-                    return False
-            else:
-                return False
+      
                     
                 
         
@@ -310,7 +307,7 @@ def main():
     
     #-------------------SERIAL PORTING-------------------------
     
-    #ser = serial.Serial('COM4',9600)  # open first serial port
+    ser = serial.Serial('/dev/cu.usbmodemfd131',9600)  # open first serial port
     #print ser.name          # check which port was really used
     
     #if(listener.collisiondetect(player, drawn_sprites_list)):
@@ -359,10 +356,11 @@ def main():
         #print ser.name          # check which port was really used
             
         #----------------------Write to COM4-------------------
-        #if(listener.collisiondetect(player, drawn_sprites_list)):
-        #    ser.write('1') 
-        #else:
-        #    ser.write('0')        
+        if(listener.collisiondetect(player, drawn_sprites_list)):
+            ser.write('1') 
+            print 'COLLLIDING'
+        else:
+            ser.write('0')        
         
      
         # Check the list of collisions.
